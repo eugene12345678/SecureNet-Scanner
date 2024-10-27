@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureNet Scanner Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 20px;
+        }
+        h1 {
+            color: #00FFFF;
+        }
+        .vulnerabilities {
+            margin-top: 20px;
+        }
+        .vulnerability {
+            background-color: #2A2A2A;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SecureNet Scanner Report</h1>
+    <p>Scanned IP Range: {{ ip_range }}</p>
+
+    <h2>Vulnerabilities:</h2>
+    <div class="vulnerabilities">
+        {% for vuln in vulnerabilities %}
+        <div class="vulnerability">{{ vuln }}</div>
+        {% endfor %}
+        {% if vulnerabilities | length == 0 %}
+        <div>No vulnerabilities found.</div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
